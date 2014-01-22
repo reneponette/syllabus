@@ -1,0 +1,19 @@
+/*
+ * This is a manifest file that'll automatically include all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ * the top of the compiled file, but it's generally better to create a new file per style scope.
+ *= require_self
+ *= require_tree .
+*/
+
+
+body {
+	padding-top: 60px;
+}
+
+.bs-docs-nav {
+  text-shadow: 0 -1px 0 rgba(0,0,0,.15);
+  background-color: #563d7c;
+  border-color: #463265;
+  box-shadow: 0 1px 0 rgba(255,255,255,.1);
+}
