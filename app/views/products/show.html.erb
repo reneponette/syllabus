@@ -14,8 +14,14 @@
   <dd><%= @product.category %></dd>
   <dt><strong><%= model_class.human_attribute_name(:season) %>:</strong></dt>
   <dd><%= @product.season %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:img_path) %>:</strong></dt>
-  <dd><%= @product.img_path %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:image_file_name) %>:</strong></dt>
+  <dd><%= @product.image_file_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:image_content_type) %>:</strong></dt>
+  <dd><%= @product.image_content_type %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:image_file_size) %>:</strong></dt>
+  <dd><%= @product.image_file_size %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:image_updated_at) %>:</strong></dt>
+  <dd><%= @product.image_updated_at %></dd>
 </dl>
 
 <div class="form-actions">

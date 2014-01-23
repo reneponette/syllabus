@@ -8,7 +8,7 @@
   <div class="control-group">
     <%= f.label :description, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_area :description, :class => 'text_area' %>
+      <%= f.text_field :description, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
@@ -30,11 +30,13 @@
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :img_path, :class => 'control-label' %>
+    <%= f.label :image, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :img_path, :class => 'text_field' %>
+      <%= f.file_field :image, :class => 'file_field' %>
     </div>
   </div>
+  
+  <br/>
 
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>

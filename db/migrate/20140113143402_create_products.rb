@@ -6,9 +6,10 @@ class CreateProducts < ActiveRecord::Migration
       t.decimal :price
       t.string :category
       t.string :season      
-      t.string :img_path
-      
+
       t.timestamps
     end
+
+    add_attachment :products, :image    
   end
 end
