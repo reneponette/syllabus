@@ -1,11 +1,11 @@
 <%- model_class = Product -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+  <h1><%= @product.name %></h1>
 </div>
 
+<%=image_tag @product.image.url%>
+
 <dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
-  <dd><%= @product.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
   <dd><%= @product.description %></dd>
   <dt><strong><%= model_class.human_attribute_name(:price) %>:</strong></dt>
@@ -14,14 +14,15 @@
   <dd><%= @product.category %></dd>
   <dt><strong><%= model_class.human_attribute_name(:season) %>:</strong></dt>
   <dd><%= @product.season %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:image_file_name) %>:</strong></dt>
+  
+<!--   <dt><strong><%= model_class.human_attribute_name(:image_file_name) %>:</strong></dt>
   <dd><%= @product.image_file_name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:image_content_type) %>:</strong></dt>
   <dd><%= @product.image_content_type %></dd>
   <dt><strong><%= model_class.human_attribute_name(:image_file_size) %>:</strong></dt>
   <dd><%= @product.image_file_size %></dd>
   <dt><strong><%= model_class.human_attribute_name(:image_updated_at) %>:</strong></dt>
-  <dd><%= @product.image_updated_at %></dd>
+  <dd><%= @product.image_updated_at %></dd> -->  
 </dl>
 
 <div class="form-actions">

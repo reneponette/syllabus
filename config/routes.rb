@@ -1,4 +1,5 @@
 Syllabus::Application.routes.draw do
+
   get "welcome/index"
   get "home/index"
   # The priority is based upon order of creation: first created -> highest priority.
@@ -14,7 +15,12 @@ Syllabus::Application.routes.draw do
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
-  resources :products
+  
+  resources :images  
+  
+  resources :products do
+    resources :images    
+  end
 
   # Example resource route with options:
   #   resources :products do
