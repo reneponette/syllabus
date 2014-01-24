@@ -1,29 +1,27 @@
 <%- model_class = Product -%>
 <div class="page-header">
-  <h1><%= @product.name %></h1>
+  <h1><%= @product.name %><small><%= @product.season %></small></h1>
 </div>
 
-<%=image_tag @product.image.url%>
+<div class="row">
+	<div class="col-md-7">
+		<%=image_tag(@product.image.url, :class => 'thumbnail', :style => 'width:100%')%>
+	</div>
+	
+	<div class="col-md-5">
+		<dl class="dl-vertical">
+		  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
+		  <dd><%= @product.description %></dd>
+		  <dt><strong><%= model_class.human_attribute_name(:price) %>:</strong></dt>
+		  <dd><%= @product.price %></dd>
+		</dl>
+	</div>
+</div>
 
-<dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
-  <dd><%= @product.description %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:price) %>:</strong></dt>
-  <dd><%= @product.price %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:category) %>:</strong></dt>
-  <dd><%= @product.category %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:season) %>:</strong></dt>
-  <dd><%= @product.season %></dd>
-  
-<!--   <dt><strong><%= model_class.human_attribute_name(:image_file_name) %>:</strong></dt>
-  <dd><%= @product.image_file_name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:image_content_type) %>:</strong></dt>
-  <dd><%= @product.image_content_type %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:image_file_size) %>:</strong></dt>
-  <dd><%= @product.image_file_size %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:image_updated_at) %>:</strong></dt>
-  <dd><%= @product.image_updated_at %></dd> -->  
-</dl>
+<% @product.images.each do |image| %>
+<%= image_tag image.image.url %>
+<% end %>
+
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),

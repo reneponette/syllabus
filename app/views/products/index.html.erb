@@ -1,111 +1,111 @@
 <%- model_class = Product -%>
-<!--
-<div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
-</div>
--->
-
-
-
-
 
 <nav class="navbar navbar-default" role="navigation">
-  <!-- Brand and toggle get grouped for better mobile display -->
-  <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#products-navbar-collapse-1">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    <a class="navbar-brand" href="#"><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></a>
-  </div>
+	<!-- Brand and toggle get grouped for better mobile display -->
+	<div class="navbar-header">
+		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#products-navbar-collapse-1">
+			<span class="sr-only">Toggle navigation</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+		<a class="navbar-brand" href="#"><%= t '.title', :default => model_class.model_name.human.pluralize.titleize %></a>
+	</div>
 
-  <!-- Collect the nav links, forms, and other content for toggling -->
-  <div class="collapse navbar-collapse" id="products-navbar-collapse-1">
-    <ul class="nav navbar-nav">
-      <li><%= link_to "All", "/products" %></li>
-      <li><%= link_to "Clutches", "/products?cat=clutch" %></li>
-      <li><%= link_to "Totes", "/products?cat=tote" %></li>
-      <li><%= link_to "Belts", "/products?cat=belt" %></li>
-      <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Season <b class="caret"></b></a>
-        <ul class="dropdown-menu">
-		  <li><a href="#">ALL</a></li>        	
-          <li class="divider"></li>
-          <li><a href="#">13/FW</a></li>
-          <li><a href="#">14/SS</a></li>
-        </ul>
-      </li>
-    </ul>
-  </div><!-- /.navbar-collapse -->
+	<!-- Collect the nav links, forms, and other content for toggling -->
+	<div class="collapse navbar-collapse" id="products-navbar-collapse-1">
+		<ul class="nav navbar-nav">
+			<li>
+				<%= link_to "All", "/products" %>
+			</li>
+			<li>
+				<%= link_to "Clutches", "/products?cat=clutch" %>
+			</li>
+			<li>
+				<%= link_to "Totes", "/products?cat=tote" %>
+			</li>
+			<li>
+				<%= link_to "Belts", "/products?cat=belt" %>
+			</li>
+			<li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Season <b class="caret"></b></a>
+				<ul class="dropdown-menu">
+					<li>
+						<a href="#">ALL</a>
+					</li>
+					<li class="divider"></li>
+					<li>
+						<a href="#">13/FW</a>
+					</li>
+					<li>
+						<a href="#">14/SS</a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div><!-- /.navbar-collapse -->
 </nav>
 
-
-
-
-
 <div class="row">
-<% @products.each do |product| %>
-	
-  <div class="col-sm-3 col-md-3">
-	<h4><%= product.name %></h4>  	  	
-    <div class="thumbnail">
-      <%= link_to image_tag(product.image.url), product_path(product) %>
-      <div class="caption">	      	
-		<p><%= product.description %></p>        
-        <p><%= product.price %></p>
-      </div>
-    </div>
-  </div>
-	
-<% end %>
+	<% @products.each do |product| %>
+
+	<div class="col-sm-3 col-md-3">
+		<div class="thumbnail">
+			<%= link_to image_tag(product.image.url), product_path(product) %>
+			<div class="caption">
+				<h4 class="text-center">
+					<%= link_to product.name, product_path(product) %>
+				</h4>
+				
+				<p>
+					<%= product.description %>
+				</p>
+			</div>
+		</div>
+	</div>
+
+	<% end %>
 </div>
-
-
-
-
-
 
 <!--
 
 <table class="table table-striped">
-  <thead>
-    <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:name) %></th>
-      <th><%= model_class.human_attribute_name(:description) %></th>
-      <th><%= model_class.human_attribute_name(:price) %></th>
-      <th><%= model_class.human_attribute_name(:category) %></th>
-      <th><%= model_class.human_attribute_name(:season) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @products.each do |product| %>
-      <tr>
-        <td><%= link_to product.id, product_path(product) %></td>
-        <td><%= product.name %></td>
-        <td><%= product.description %></td>
-        <td><%= product.price %></td>
-        <td><%= product.category %></td>
-        <td><%= product.season %></td>
-        <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_product_path(product), :class => 'btn btn-mini' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      product_path(product),
-                      :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      :class => 'btn btn-mini btn-danger' %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
+<thead>
+<tr>
+<th><%= model_class.human_attribute_name(:id) %></th>
+<th><%= model_class.human_attribute_name(:name) %></th>
+<th><%= model_class.human_attribute_name(:description) %></th>
+<th><%= model_class.human_attribute_name(:price) %></th>
+<th><%= model_class.human_attribute_name(:category) %></th>
+<th><%= model_class.human_attribute_name(:season) %></th>
+<th><%=t '.actions', :default => t("helpers.actions") %></th>
+</tr>
+</thead>
+<tbody>
+<% @products.each do |product| %>
+<tr>
+<td><%= link_to product.id, product_path(product) %></td>
+<td><%= product.name %></td>
+<td><%= product.description %></td>
+<td><%= product.price %></td>
+<td><%= product.category %></td>
+<td><%= product.season %></td>
+<td>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+edit_product_path(product), :class => 'btn btn-mini' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+product_path(product),
+:method => :delete,
+:data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+:class => 'btn btn-mini btn-danger' %>
+</td>
+</tr>
+<% end %>
+</tbody>
 </table>
 
 <%= link_to t('.new', :default => t("helpers.links.new")),
-            new_product_path,
-            :class => 'btn btn-primary' %>
-            
+new_product_path,
+:class => 'btn btn-primary' %>
+
 -->
