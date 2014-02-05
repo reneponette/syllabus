@@ -2,7 +2,8 @@
  * This is a manifest file that'll automatically include all the stylesheets available in this directory
  * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
  * the top of the compiled file, but it's generally better to create a new file per style scope.
- *= require_self
+ *= require_bootstrap
+ *= require_bootsttap-theme
  *= require_tree .
 */
 
@@ -13,13 +14,13 @@ body {
 }
 
 .thumbnail {
-	border-radius: 0px !important;
+	border-radius: 0px;
 }
 
 .thumbnail,
 .img-thumbnail {
-  -webkit-box-shadow: 0 3px 4px rgba(0, 0, 0, 0.075) !important;
-          box-shadow: 0 3px 4px rgba(0, 0, 0, 0.075) !important;
+  -webkit-box-shadow: 0 3px 4px rgba(0, 0, 0, 0.075);
+          box-shadow: 0 3px 4px rgba(0, 0, 0, 0.075);
 }
 
 .panel-body {
