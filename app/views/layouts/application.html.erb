@@ -72,46 +72,25 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-3">
-					<div class="bs-sidebar hidden-print affix" role="complementary" style="">
+					<div id="sidebar" class="bs-sidebar hidden-print affix" role="complementary" style="">
 						<ul class="nav bs-sidenav">
 
-							<li class="">
+							<li>
 								<a href="#nav">Navs</a>
 								<ul class="nav">
-									<li>
-										<a href="#nav-tabs">Tabs</a>
-									</li>
-									<li>
-										<a href="#nav-pills">Pills</a>
-									</li>
-									<li>
-										<a href="#nav-justified">Justified nav</a>
-									</li>
-									<li>
-										<a href="#nav-disabled-links">Disabled links</a>
-									</li>
-									<li>
-										<a href="#nav-dropdowns">Using dropdowns</a>
-									</li>
+									<li><a href="#nav-tabs">Tabs</a></li>
+									<li><a href="#nav-pills">Pills</a></li>
+									<li><a href="#nav-justified">Justified nav</a></li>
+									<li><a href="#nav-disabled-links">Disabled links</a></li>
 								</ul>
 							</li>
-							<li class="">
-								<a href="#labels">Labels</a>
-							</li>
-							<li>
-								<a href="#badges">Badges</a>
-							</li>
-							<li>
-								<a href="#jumbotron">Jumbotron</a>
-							</li>
-							<li class="">
-								<a href="#page-header">Page header</a>
-							</li>
+							<li><a href="#labels">Labels</a></li>
+							<li><a href="#badges">Badges</a></li>
+							<li><a href="#jumbotron">Jumbotron</a></li>
 						</ul>
 					</div>
 				</div>
 				<div class="col-md-9">
-					<%= bootstrap_flash %>
 					<div class="panel panel-default">
 						<div class="panel-body">
 							<%= yield %>

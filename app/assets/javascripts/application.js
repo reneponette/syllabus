@@ -13,4 +13,23 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require bootstrap
 //= require_tree .
+
+
+
+$(document).ready(function() {
+	$('#sidebar li').click(function() {
+		
+		if($(this).hasClass('active'))
+			$(this).removeClass('active');
+		else {
+			$('#sidebar li').removeClass('active');			
+			$(this).addClass('active');
+		}
+	});
+});
+
+
+
+
