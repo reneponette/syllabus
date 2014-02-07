@@ -11,20 +11,20 @@
 		</button>
 		<a class="navbar-brand" href="#"><%= t '.title', :default => model_class.model_name.human.pluralize.titleize %></a>
 	</div>
-
+	
 	<!-- Collect the nav links, forms, and other content for toggling -->
 	<div class="collapse navbar-collapse" id="products-navbar-collapse-1">
 		<ul class="nav navbar-nav">
-			<li>
+			<li class="<%= controller.params[:cat] == nil ? 'active' : '' %>">
 				<%= link_to "All", "/products" %>
 			</li>
-			<li>
+			<li class="<%= controller.params[:cat] == 'clutch' ? 'active' : '' %>">
 				<%= link_to "Clutches", "/products?cat=clutch" %>
 			</li>
-			<li>
+			<li class="<%= controller.params[:cat] == 'tote' ? 'active' : '' %>">
 				<%= link_to "Totes", "/products?cat=tote" %>
 			</li>
-			<li>
+			<li class="<%= controller.params[:cat] == 'belt' ? 'active' : '' %>">
 				<%= link_to "Belts", "/products?cat=belt" %>
 			</li>
 			<li class="dropdown">

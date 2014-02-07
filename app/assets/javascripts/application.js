@@ -19,6 +19,8 @@
 
 
 $(document).ready(function() {
+	alert('ready');
+	
 	$('#sidebar li').click(function() {
 		
 		if($(this).hasClass('active'))

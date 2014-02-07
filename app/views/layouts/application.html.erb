@@ -53,16 +53,47 @@
 				</div>
 				<nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
 					<ul class="nav navbar-nav">
-						<li>
+						<li class="<%= controller.controller_name == 'home' ? 'active' : '' %>">
 							<%= link_to "Home", "/home/index" %>
 						</li>
-						<li>
+						<li class="<%= controller.controller_name == 'products' ? 'active' : '' %>">
 							<%= link_to "Products", "/products" %>
 						</li>
+
+						<li>
+							<a href="#labels">Brand Philosophy</a>
+						</li>
+						<li>
+							<a href="#badges">Designer</a>
+						</li>
+						<li>
+							<a href="#nav">Collection 2014</a>
+							<ul class="nav">
+								<li>
+									<a href="#nav-tabs">EVENING CLUTCH</a>
+								</li>
+								<li>
+									<a href="#nav-pills">CONVERTIBLE CLUTCH</a>
+								</li>
+								<li>
+									<a href="#nav-justified">CONVERTIBLE TOTE SHOULDER</a>
+								</li>
+								<li>
+									<a href="#nav-disabled-links">BELTS</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="#jumbotron">Press</a>
+						</li>
+						<li>
+							<a href="#jumbotron">Contact</a>
+						</li>
+
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<li>
-							<a href="../about">About</a>
+							<a href="../about"> About</a>
 						</li>
 					</ul>
 				</nav>
@@ -71,27 +102,7 @@
 
 		<div class="container">
 			<div class="row">
-				<div class="col-md-3">
-					<div id="sidebar" class="bs-sidebar hidden-print affix" role="complementary" style="">
-						<ul class="nav bs-sidenav">
-
-							<li><a href="#labels">Brand Philosophy</a></li>
-							<li><a href="#badges">Designer</a></li>
-							<li>
-								<a href="#nav">Collection 2014</a>
-								<ul class="nav">
-									<li><a href="#nav-tabs">EVENING CLUTCH</a></li>
-									<li><a href="#nav-pills">CONVERTIBLE CLUTCH</a></li>
-									<li><a href="#nav-justified">CONVERTIBLE TOTE SHOULDER</a></li>
-									<li><a href="#nav-disabled-links">BELTS</a></li>
-								</ul>
-							</li>
-							<li><a href="#jumbotron">Press</a></li>
-							<li><a href="#jumbotron">Contact</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-md-9">
+				<div class="col-md-12">
 					<div class="panel panel-default">
 						<div class="panel-body">
 							<%= yield %>
