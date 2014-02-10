@@ -53,41 +53,40 @@
 				</div>
 				<nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
 					<ul class="nav navbar-nav">
-						<li class="<%= controller.controller_name == 'home' ? 'active' : '' %>">
-							<%= link_to "Home", "/home/index" %>
-						</li>
-						<li class="<%= controller.controller_name == 'products' ? 'active' : '' %>">
-							<%= link_to "Products", "/products" %>
-						</li>
-
 						<li>
 							<a href="#labels">Brand Philosophy</a>
 						</li>
 						<li>
 							<a href="#badges">Designer</a>
 						</li>
-						<li>
-							<a href="#nav">Collection 2014</a>
-							<ul class="nav">
+
+						<li class="<%= controller.controller_name == 'products' ? 'active' : '' %> dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Products <b class="caret"></b></a>
+							<ul class="dropdown-menu">
 								<li>
-									<a href="#nav-tabs">EVENING CLUTCH</a>
+									<%= link_to "ALL", "/products" %>
+								</li>
+								<li class="divider"></li>
+								<li>
+									<%= link_to "EVENING CLUTCH", "/products?cat=clutch" %>
 								</li>
 								<li>
-									<a href="#nav-pills">CONVERTIBLE CLUTCH</a>
+									<%= link_to "CONVERTIBLE CLUTCH", "/products?cat=clutch" %>
 								</li>
 								<li>
-									<a href="#nav-justified">CONVERTIBLE TOTE SHOULDER</a>
+									<%= link_to "CONVERTIBLE TOTE SHOULDER", "/products?cat=tote" %>
 								</li>
 								<li>
-									<a href="#nav-disabled-links">BELTS</a>
+									<%= link_to "BELTS", "/products?cat=belt" %>
 								</li>
 							</ul>
+
 						</li>
 						<li>
-							<a href="#jumbotron">Press</a>
+							<a href="#">Press</a>
 						</li>
 						<li>
-							<a href="#jumbotron">Contact</a>
+							<a href="#">Contact</a>
 						</li>
 
 					</ul>

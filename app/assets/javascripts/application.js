@@ -19,7 +19,6 @@
 
 
 $(document).ready(function() {
-	alert('ready');
 	
 	$('#sidebar li').click(function() {
 		

@@ -5,10 +5,16 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     cat = params[:cat]
+    season = params[:season]
+
+    if season == nil
+      params[:season] = "all season"
+    end
     
     if cat
       @products = Product.where(category: cat)
     else
+      params[:cat] = "all Products"
       @products = Product.all
     end
   end
