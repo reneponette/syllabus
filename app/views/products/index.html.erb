@@ -1,20 +1,23 @@
 <%- model_class = Product -%>
 
+<%
+cat = controller.params[:cat]
+season = controller.params[:season]
+%>
 <div class="page-header">
-	<h3><%= controller.params[:cat].pluralize.titleize %>
+	<h3><%= cat == nil ? "Products" : cat.pluralize.titleize %>
 		<small><span class="dropdown">
-			<a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= controller.params[:season].pluralize.titleize %> <b class="caret"></b></a>
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= season == nil ? "All" : season %> <b class="caret"></b></a>
 			<ul class="dropdown-menu">
 				<li>
-					<a href="<%=products_path%>">ALL</a>
-					
+					<a href="<%= products_path + (cat == nil ? "" : "?cat=" + cat) %>">All</a>
 				</li>
 				<li class="divider"></li>
 				<li>
-					<a href="#">13/FW</a>
+					<a href="<%=products_path%>?season=13/FW<%= cat == nil ? "" : "&cat=" + cat %>">13/FW</a>
 				</li>
 				<li>
-					<a href="#">14/SS</a>
+					<a href="<%=products_path%>?season=14/SS<%= cat == nil ? "" : "&cat=" + cat %>">14/SS</a>
 				</li>
 			</ul>
 		</span> </small>

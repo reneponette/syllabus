@@ -7,15 +7,18 @@ class ProductsController < ApplicationController
     cat = params[:cat]
     season = params[:season]
 
-    if season == nil
-      params[:season] = "all season"
-    end
-    
     if cat
-      @products = Product.where(category: cat)
+      if season
+        @products = Product.where(category: cat, season: season)
+      else
+        @products = Product.where(category: cat)
+      end
     else
-      params[:cat] = "all Products"
-      @products = Product.all
+      if season
+        @products = Product.where(season: season)
+      else
+        @products = Product.all
+      end
     end
   end
 
