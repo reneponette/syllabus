@@ -2,21 +2,17 @@
  * This is a manifest file that'll automatically include all the stylesheets available in this directory
  * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
  * the top of the compiled file, but it's generally better to create a new file per style scope.
- *= require_self
- *= require_tree .
 */
 
-$light-orange: #ff8c00;
 $gray-light: lighten(#000, 60%);
 $link-color: $gray-light;
 
 
 @import "bootstrap";
-@import "bootstrap/theme";
 
 body {
 	padding-top: 80px;
-	background:url(<%=image_path 'BACKGROUND.jpg'%>);
+	background-image: image-url("BACKGROUND.jpg");	
 }
 
 .thumbnail {
@@ -33,12 +29,8 @@ body {
 	background-color:#fcfcfc;
 }
 
-.bs-sidebar .nav>.active>ul {
-	display: block;
-}
 
-.bs-sidebar .nav .nav {
-	display: none;
-	padding-bottom: 10px;
-	padding-left:10px;
-}
+
+@import "home";
+@import "products";
+@import "welcome";
