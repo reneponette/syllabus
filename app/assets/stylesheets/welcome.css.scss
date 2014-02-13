@@ -2,15 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@mixin center-block-vertical() {
+  margin-top:auto;
+  margin-bottom:auto;
+}
 
 
 #intro {
-  background-color:yellow;
-  width:600px;
+  width:900px;
+  margin-top: 50px;
   @include center-block();
-}
-
-#openning-bag {
-  width:300px;
-  @include center-block();  
 }
