@@ -16,6 +16,9 @@ Syllabus::Application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   
+  get "admin" => "admin#index"
+  post "admin/login" => "admin#login"
+  
   resources :images  
   
   resources :products do

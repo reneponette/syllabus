@@ -1,0 +1,8 @@
+<%= form_tag(:controller => "admin", :action => "login") do %>
+
+<fieldset style="margin:10px;">
+	<label class="password">비밀번호</label>
+	<%= password_field_tag :password, '' %>
+	<%= submit_tag "login", :class => 'btn pull-right' %>
+</fieldset>
+<% end %>
