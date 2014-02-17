@@ -4,5 +4,17 @@
 
 
 #contact {
-  color: white;
+  margin-top: 100px;
+  color: black;
+  position:relative;
+  
+  img {
+    position:relative;
+  }
+  
+  div {
+    position:relative;
+    width:300px;
+    background-color:blue;
+  }
 }
