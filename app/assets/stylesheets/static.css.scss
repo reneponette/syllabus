@@ -4,17 +4,19 @@
 
 
 #contact {
+  @include center-block();
+  background-image: image-url("content_bg.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  width:900px;
+  height: 600px;
   margin-top: 100px;
   color: black;
-  position:relative;
-  
-  img {
-    position:relative;
-  }
   
   div {
-    position:relative;
+    position:absolute;
     width:300px;
-    background-color:blue;
+    top:200px;
+    right:200px;
   }
 }
