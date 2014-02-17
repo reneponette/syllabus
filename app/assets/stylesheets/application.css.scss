@@ -7,7 +7,6 @@
 $gray-light: lighten(#000, 60%);
 $link-color: $gray-light;
 
-
 @import "bootstrap";
 
 body {
@@ -22,11 +21,30 @@ body {
   }
 }
 
-.navbar-header {
-  background-color:black;
-  background-image: image-url("pattern.png");
-  background-repeat: repeat-x;
-  background-position: bottom center;
+// .navbar-header {
+  // background-color:black;
+  // background-image: image-url("pattern.png");
+  // background-repeat: repeat-x;
+  // background-position: bottom center;
+// }
+
+.navbar-inverse {
+  .separator {
+    margin-left:-100%;
+    margin-right:-100%;
+    height:5px;
+    background-image: image-url("pattern.png");
+    background-repeat: repeat-x;
+    background-position: bottom center;    
+    z-index: 1;
+    position: relative;
+    top: 55px;    
+  }
+  
+  .navbar-collapse {
+    box-shadow: none;
+    border-color: transparent;
+  }
 }
 
 .thumbnail {

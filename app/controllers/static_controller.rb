@@ -1,5 +1,3 @@
 class StaticController < ApplicationController
-  def contact
-    render layout: "contact"    
-  end
+  layout "static"
 end

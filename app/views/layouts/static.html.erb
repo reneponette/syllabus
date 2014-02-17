@@ -42,6 +42,7 @@
 
 		<header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
 			<div class="container">
+				<div class="separator"></div>
 				<div class="navbar-header">
 					<button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
 						<span class="sr-only">Toggle navigation</span>
@@ -54,10 +55,10 @@
 				<nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
 					<ul class="nav navbar-nav">
 						<li>
-							<a href="#labels">Brand Philosophy</a>
+							<a href="/philosophy">Brand Philosophy</a>
 						</li>
 						<li>
-							<a href="#badges">Designer</a>
+							<a href="/designer">Designer</a>
 						</li>
 
 						<li class="<%= controller.controller_name == 'products' ? 'active' : '' %> dropdown">
@@ -103,7 +104,6 @@
 			<div class="row">
 				<div class="col-md-12">
 					<%= yield %>
-
 				</div>
 			</div>
 		</div>
