@@ -15,6 +15,13 @@ body {
 	background-image: image-url("BACKGROUND.jpg");	
 }
 
+.navbar-brand {
+  img {
+    position:relative;
+    top:-10px;
+  }
+}
+
 .thumbnail {
 	border-radius: 0px;
 }
