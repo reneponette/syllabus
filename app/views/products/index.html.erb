@@ -1,46 +1,50 @@
 <%- model_class = Product -%>
 
 <%
-cat = controller.params[:cat]
-season = controller.params[:season]
+ cat = controller.params[:cat]
+  season = controller.params[:season]
 %>
-<div class="page-header">
-	<h3><%= cat == nil ? "Products" : cat.pluralize.titleize %>
-		<small><span class="dropdown">
-			<a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= season == nil ? "All" : season %> <b class="caret"></b></a>
-			<ul class="dropdown-menu">
-				<li>
-					<a href="<%= products_path + (cat == nil ? "" : "?cat=" + cat) %>">All</a>
-				</li>
-				<li class="divider"></li>
-				<li>
-					<a href="<%=products_path%>?season=13/FW<%= cat == nil ? "" : "&cat=" + cat %>">13/FW</a>
-				</li>
-				<li>
-					<a href="<%=products_path%>?season=14/SS<%= cat == nil ? "" : "&cat=" + cat %>">14/SS</a>
-				</li>
-			</ul>
-		</span> </small>
-	</h3>
-</div>
 
-<div class="row">
-	<% @products.each do |product| %>
+<div class="panel panel-default">
 
-	<div class="col-sm-3 col-md-3">
-		<div class="thumbnail">
-			<%= link_to image_tag(product.image.url), product_path(product) %>
-			<div class="caption">
-				<h4 class="text-center"> <%= link_to product.name, product_path(product) %> </h4>
-
-				<p>
-					<%= product.description %>
-				</p>
-			</div>
-		</div>
+	<div class="panel-heading">
+		<h3><%= cat == nil ? "Products" : cat.pluralize.titleize %> <small><span class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= season == nil ? "All" : season %> <b class="caret"></b></a>
+				<ul class="dropdown-menu">
+					<li>
+						<a href="<%= products_path + (cat == nil ? "" : "?cat=" + cat) %>">All</a>
+					</li>
+					<li class="divider"></li>
+					<li>
+						<a href="<%= products_path%>?season=13/FW<%= cat == nil ? "" : "&cat=" + cat %>">13/FW</a>
+					</li>
+					<li>
+						<a href="<%= products_path%>?season=14/SS<%= cat == nil ? "" : "&cat=" + cat %>">14/SS</a>
+					</li>
+				</ul> </span> </small></h3>
 	</div>
+	
+	<div class="panel-body">
 
-	<% end %>
+		<div class="row">
+			<% @products.each do |product| %>
+
+			<div class="col-sm-3 col-md-3">
+				<div class="thumbnail">
+					<%= link_to image_tag(product.image.url), product_path(product) %>
+					<div class="caption">
+						<h4 class="text-center"> <%= link_to product.name, product_path(product) %> </h4>
+
+						<p>
+							<%= product.description %>
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<% end %>
+		</div>
+
+	</div>
 </div>
 
 <!--

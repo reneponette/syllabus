@@ -21,12 +21,9 @@ body {
   }
 }
 
-// .navbar-header {
-  // background-color:black;
-  // background-image: image-url("pattern.png");
-  // background-repeat: repeat-x;
-  // background-position: bottom center;
-// }
+.navbar-fixed-top {
+  margin-top:-5px;
+}
 
 .navbar-inverse {
   .separator {
@@ -57,8 +54,21 @@ body {
           box-shadow: 0 3px 4px rgba(0, 0, 0, 0.075);
 }
 
-.panel-body {
-	background-color:#fcfcfc;
+.panel {
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 0px;
+  -webkit-box-shadow: 0 3px 4px rgba(0, 0, 0, 0.075);
+          box-shadow: 0 3px 4px rgba(0, 0, 0, 0.075);
+            
+  .panel-heading {
+    background-color: rgba(255, 255, 255, 0.9);
+    
+  }
+  
+  .panel-body {
+    background-color:#fcfcfc;
+  }
 }
 
 

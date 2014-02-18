@@ -20,7 +20,7 @@
 
 $(document).ready(function() {
 	
-	$('#sidebar li').click(function() {
+	$('.nav li').click(function() {
 		
 		if($(this).hasClass('active'))
 			$(this).removeClass('active');
