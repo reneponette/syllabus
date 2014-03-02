@@ -1,7 +1,7 @@
 <%- model_class = Product -%>
 
 <%
- cat = controller.params[:cat]
+  cat = controller.params[:cat]
   season = controller.params[:season]
 %>
 
@@ -9,7 +9,7 @@
 
 	<div class="panel-heading">
 		<h3>
-			<%= cat == nil ? "Products" : cat.pluralize.titleize %>
+			<%= categoryTitle(cat.to_i).pluralize.titleize %>
 			<small>
 				<span class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">
 					<%= season == nil ? "All" : season %> <b class="caret"></b></a>

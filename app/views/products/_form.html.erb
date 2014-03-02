@@ -1,66 +1,65 @@
-<div class="panel panel-primary">
-	<div class="panel-heading">
-		<h3 class="panel-title">Basic Infos</h3>
+
+<div class="row">
+	<%= form_for @product, :html => { :class => 'form-vertical col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3' } do |f| %>
+	
+	<% if @product.id %>
+	<div class="form-group">
+		<label for="product_id">ID</label>
+		<input class="form-control" id="product_id" name="product[id]" type="text" value="<%=@product.id%>" disabled>
 	</div>
-	<div class="panel-body">
-		<div class="row">
-			<%= form_for @product, :html => { :class => 'form-vertical col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3' } do |f| %>
-			
-			<% if @product.id %>
-			<div class="form-group">
-				<label for="product_id">ID</label>
-				<input class="form-control" id="product_id" name="product[id]" type="text" value="<%=@product.id%>" disabled>
-			</div>
-			<% end %>			
+	<% end %>			
 
-			<div class="form-group">
-				<%= f.label :name %>
-				<%= f.text_field :name, :class => 'form-control' %>
-			</div>
+	<div class="form-group">
+		<%= f.label :name %>
+		<%= f.text_field :name, :class => 'form-control' %>
+	</div>
 
-			<div class="form-group">
-				<%= f.label :description, :class => 'control-label' %>
-				<%= f.text_area :description, :class => 'form-control', :style => 'height:300px;' %>
-			</div>
-
-			<div class="form-group">
-				<%= f.label :price %>
-				<div class="input-group">
-					<span class="input-group-addon">$</span>
-					<%= f.text_field :price, :class => 'form-control' %>
-				</div>
-			</div>
-
-			<div class="form-group">
-				<%= f.label :category %>
-				<%= f.text_field :category, :class => 'form-control' %>
-			</div>
-
-			<div class="form-group">
-				<%= f.label :season %>
-				<%= f.text_field :season, :class => 'form-control' %>
-			</div>
-
-
-			<div class="form-group">
-				<%= f.label :image %>
-				<% if @product.id %>
-				<%= image_tag @product.image.url(:medium) %>
-				<% end %>
-				<%= f.file_field :image, :class => 'form-control' %>
-			</div>
-
-			<br/>
-
-			<div class="form-actions">
-				<%= f.submit nil, :class => 'btn btn-primary' %>
-				<%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-				product_path(@product), :class => 'btn' %>
-			</div>
-			<% end %>
-
+	<div class="form-group">
+		<%= f.label :description, :class => 'control-label' %>
+		<%= f.text_area :description, :class => 'form-control', :style => 'height:300px;' %>
+	</div>
+	
+	<div class="form-group" style="display:none;">
+		<%= f.label :price %>
+		<div class="input-group">
+			<span class="input-group-addon">$</span>
+			<%= f.text_field :price, :class => 'form-control' %>
 		</div>
 	</div>
+
+	<div class="form-group">
+		<%= f.label :category %>
+		<%
+			cat_options = [
+				[categoryTitle(100).titleize, 100], [categoryTitle(110).titleize, 110],
+				[categoryTitle(200).titleize, 200], [categoryTitle(300).titleize, 300]
+			]
+		%>
+		<%= f.select(:category, cat_options, {}, {:class => "form-control"}) %>
+	</div>
+
+	<div class="form-group">
+		<%= f.label :season %>
+		<%= f.text_field :season, :class => 'form-control' %>
+	</div>
+
+
+	<div class="form-group">
+		<%= f.label :image %>
+		<% if @product.id %>
+		<%= image_tag @product.image.url(:medium) %>
+		<% end %>
+		<%= f.file_field :image, :class => 'form-control' %>
+	</div>
+
+	<br/>
+
+	<div class="form-actions">
+		<%= f.submit nil, :class => 'btn btn-primary' %>
+		<%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+		product_path(@product), :class => 'btn' %>
+	</div>
+	<% end %>
 </div>
 
 <% if @product.id %>

@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20140124083332) do
     t.string   "name"
     t.string   "description"
     t.decimal  "price"
-    t.string   "category"
+    t.integer  "category"
     t.string   "season"
     t.datetime "created_at"
     t.datetime "updated_at"
