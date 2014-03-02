@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   before_filter :check_admin
   
   def check_admin
-    @_admin = !cookies[:admin].nil?
+    @_admin = cookies[:admin] == 'yes'
   end
 
 end

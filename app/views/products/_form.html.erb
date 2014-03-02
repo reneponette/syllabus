@@ -44,7 +44,9 @@
 
 			<div class="form-group">
 				<%= f.label :image %>
+				<% if @product.id %>
 				<%= image_tag @product.image.url(:medium) %>
+				<% end %>
 				<%= f.file_field :image, :class => 'form-control' %>
 			</div>
 

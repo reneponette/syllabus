@@ -8,9 +8,17 @@ class AdminController < ApplicationController
     
     if password == '7797'
       cookies[:admin] = 'yes'
+    else
+      cookies[:admin] = 'no'
     end
 
-    redirect_to :products
+    puts 'cookies = ' + cookies[:admin]
+    redirect_to :admin
+  end
+  
+  def logout
+    cookies[:admin] = 'no'
+    redirect_to :admin
   end
 
 end
