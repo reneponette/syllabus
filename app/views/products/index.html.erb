@@ -8,19 +8,24 @@
 <div class="panel panel-default">
 
 	<div class="panel-heading">
-		<h3><%= cat == nil ? "Products" : cat.pluralize.titleize %> <small><span class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= season == nil ? "All" : season %> <b class="caret"></b></a>
-				<ul class="dropdown-menu">
-					<li>
-						<a href="<%= products_path + (cat == nil ? "" : "?cat=" + cat) %>">All</a>
-					</li>
-					<li class="divider"></li>
-					<li>
-						<a href="<%= products_path%>?season=13/FW<%= cat == nil ? "" : "&cat=" + cat %>">13/FW</a>
-					</li>
-					<li>
-						<a href="<%= products_path%>?season=14/SS<%= cat == nil ? "" : "&cat=" + cat %>">14/SS</a>
-					</li>
-				</ul> </span> </small></h3>
+		<h3>
+			<%= cat == nil ? "Products" : cat.pluralize.titleize %>
+			<small>
+				<span class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+					<%= season == nil ? "All" : season %> <b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><a href="<%= products_path + (cat == nil ? "" : "?cat=" + cat) %>">All</a></li>
+						<li class="divider"></li>
+						<li><a href="<%= products_path%>?season=13/FW<%= cat == nil ? "" : "&cat=" + cat %>">13/FW</a></li>
+						<li><a href="<%= products_path%>?season=14/SS<%= cat == nil ? "" : "&cat=" + cat %>">14/SS</a></li>
+					</ul>
+				</span>
+			</small>
+		</h3>
+		<% if @_admin %>
+		<%= link_to t('.new', :default => t("helpers.links.new")), new_product_path, :class => 'btn btn-primary' %>
+		<% end %>
+
 	</div>
 	
 	<div class="panel-body">
