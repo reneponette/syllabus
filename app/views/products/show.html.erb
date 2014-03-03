@@ -9,17 +9,23 @@
 
 		<div class="row">
 			<div class="col-md-7">
-				<%= image_tag(@product.image.url, :class => 'thumbnail', :style => 'width:100%')%>
+				<% if @product.images.length > 0 %>
+				<%= image_tag(@product.images[0].image.url, :class => 'thumbnail', :style => 'width:100%')%>
+				<% end %>
+				
+				<div class="row">
+					<% @product.images.each do |image| %>
+					<div class="col-xs-3 col-md-3">
+						<a href="#" class="thumbnail"><%= image_tag image.image.url(:thumb) %></a>
+					</div>
+					<% end %>
+				</div>				
 			</div>
 
 			<div class="col-md-5">
 				<dl class="dl-vertical">
-					<dt>
-						<strong><%= model_class.human_attribute_name(:description) %>:</strong>
-					</dt>
-					<dd>
-						<%= @product.description %>
-					</dd>
+					<dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
+					<dd><%= @product.description %></dd>
 
 					<!-- <dt><strong><%= model_class.human_attribute_name(:price) %>:</strong></dt>
 					<dd><%= @product.price %></dd> -->
@@ -27,9 +33,6 @@
 			</div>
 		</div>
 
-		<% @product.images.each do |image| %>
-		<%= image_tag image.image.url %>
-		<% end %>
 
 		<% if @_admin %>
 		<div class="form-actions">
