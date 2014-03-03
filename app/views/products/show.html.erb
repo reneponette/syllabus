@@ -8,20 +8,55 @@
 		</div>
 
 		<div class="row">
+			
+			<!-- 상품 이미지 -->
 			<div class="col-md-7">
-				<% if @product.images.length > 0 %>
-				<%= image_tag(@product.images[0].image.url, :class => 'thumbnail', :style => 'width:100%')%>
-				<% end %>
 				
+				<!-- 메인 이미지 -->
+				
+				
+				<div id="myCarousel" class="carousel slide thumbnail">
+				  	<!-- Indicators -->
+					<ol class="carousel-indicators">
+						<% @product.images.each.with_index(0) do |image, i| %>
+						<li data-target="#myCarousel" data-slide-to="<%= i %>" class="<%= i==0 ? 'active' : '' %>"></li>
+						<% end %>
+					</ol>
+				    <div class="carousel-inner">
+						<% @product.images.each.with_index(0) do |image, i| %>  	
+						<div class="item <%= i==0 ? 'active' : '' %>">
+							<%= image_tag image.image.url, :class => 'img-responsive center-block' %>    	
+							<div class="container">
+								<div class="carousel-caption">
+									aljhlhklhklh
+								</div>
+							</div>
+						</div>
+				      	<% end %>
+				  	</div>
+				  	
+					<!-- Controls -->
+					<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+						<span class="icon-prev"></span>
+					</a>
+					<a class="right carousel-control" href="#myCarousel" data-slide="next">
+						<span class="icon-next"></span>
+					</a>  
+				</div>				
+								
+				
+				<!-- 디테일 이미지 -->
 				<div class="row">
 					<% @product.images.each do |image| %>
 					<div class="col-xs-3 col-md-3">
 						<a href="#" class="thumbnail"><%= image_tag image.image.url(:thumb) %></a>
 					</div>
 					<% end %>
-				</div>				
+				</div>
+				
 			</div>
 
+			<!-- 상품 설명 -->
 			<div class="col-md-5">
 				<dl class="dl-vertical">
 					<dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
