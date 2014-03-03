@@ -12,48 +12,30 @@
 			<!-- 상품 이미지 -->
 			<div class="col-md-7">
 				
-				<!-- 메인 이미지 -->
-				
-				
-				<div id="myCarousel" class="carousel slide thumbnail">
-				  	<!-- Indicators -->
-					<ol class="carousel-indicators">
-						<% @product.images.each.with_index(0) do |image, i| %>
-						<li data-target="#myCarousel" data-slide-to="<%= i %>" class="<%= i==0 ? 'active' : '' %>"></li>
-						<% end %>
-					</ol>
+				<!-- 메인 carousel -->
+				<div id="myCarousel" class="carousel slide thumbnail">					
 				    <div class="carousel-inner">
 						<% @product.images.each.with_index(0) do |image, i| %>  	
 						<div class="item <%= i==0 ? 'active' : '' %>">
 							<%= image_tag image.image.url, :class => 'img-responsive center-block' %>    	
-							<div class="container">
-								<div class="carousel-caption">
-									aljhlhklhklh
-								</div>
-							</div>
 						</div>
 				      	<% end %>
 				  	</div>
-				  	
 					<!-- Controls -->
-					<a class="left carousel-control" href="#myCarousel" data-slide="prev">
-						<span class="icon-prev"></span>
-					</a>
-					<a class="right carousel-control" href="#myCarousel" data-slide="next">
-						<span class="icon-next"></span>
-					</a>  
+					<a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="icon-prev"></span></a>
+					<a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="icon-next"></span></a>  
 				</div>				
 								
-				
-				<!-- 디테일 이미지 -->
+				<!-- carousel indicator -->
 				<div class="row">
-					<% @product.images.each do |image| %>
+					<% @product.images.each.with_index(0) do |image, i| %>
 					<div class="col-xs-3 col-md-3">
-						<a href="#" class="thumbnail"><%= image_tag image.image.url(:thumb) %></a>
+					<a data-target="#myCarousel" data-slide-to="<%= i %>" class="thumbnail">
+						<%= image_tag image.image.url(:thumb) %>
+					</a>
 					</div>
-					<% end %>
+					<% end %>					
 				</div>
-				
 			</div>
 
 			<!-- 상품 설명 -->
