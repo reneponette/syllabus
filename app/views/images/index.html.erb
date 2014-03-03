@@ -6,11 +6,9 @@
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:thumbnail) %></th>
       <th><%= model_class.human_attribute_name(:image_file_name) %></th>
-      <th><%= model_class.human_attribute_name(:image_content_type) %></th>
       <th><%= model_class.human_attribute_name(:image_file_size) %></th>
-      <th><%= model_class.human_attribute_name(:image_updated_at) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -18,11 +16,9 @@
     <% @images.each do |image| %>
       <tr>
         <td><%= link_to image.id, image_path(image) %></td>
+		<td><%= image_tag image.image.url(:thumb) %></td>        
         <td><%= image.image_file_name %></td>
-        <td><%= image.image_content_type %></td>
         <td><%= image.image_file_size %></td>
-        <td><%= image.image_updated_at %></td>
-        <td><%=l image.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_image_path(image), :class => 'btn btn-mini' %>

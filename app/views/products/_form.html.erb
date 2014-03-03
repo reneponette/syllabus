@@ -62,9 +62,9 @@
 	</div>
 	<div class="panel-body">
 		<div class="row">
-			<% @product.images.each do |image| %>
+			<% @product.images.each.with_index(1) do |image, i| %>
 			<div class="col-xs-3 col-md-3">
-				<a href="#" class="thumbnail"><%= image_tag image.image.url(:thumb) %></a>
+				<a href="/products/<%=@product.id%>/images/<%=i%>/edit" class="thumbnail"><%= image_tag image.image.url(:thumb) %></a>
 			</div>
 			<% end %>
 		</div>				
