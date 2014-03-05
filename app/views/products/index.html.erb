@@ -30,17 +30,14 @@
 	<div class="panel-body">
 		<div class="row">
 			<% @products.each do |product| %>
-			<div class="col-sm-3 col-md-3">
+			<div class="product_list_item col-sm-3 col-md-3">
 				<div class="thumbnail">
 					<% if product.images.length > 0 %>
 					<%= link_to image_tag(product.images[0].image.url), product_path(product) %>
 					<% end %>
 					<div class="caption">
 						<h4 class="text-center"> <%= link_to product.name, product_path(product) %> </h4>
-
-						<p class="product_desc">
-							<%= product.description %>
-						</p>
+						<p class="product_desc"><%= product.description %></p>
 					</div>
 				</div>
 			</div>
