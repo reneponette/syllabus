@@ -7,17 +7,36 @@ class ProductsController < ApplicationController
     cat = params[:cat]
     season = params[:season]
 
+
+    where = {}
+
     if cat
       if season
-        @products = Product.where(category: cat, season: season).order('display_order ASC')
+        if admin?
+          @products = Product.where(category: cat, season: season).order('display_order ASC')
+        else
+          @products = Product.where(hidden: false, category: cat, season: season).order('display_order ASC')
+        end
       else
-        @products = Product.where(category: cat).order('display_order ASC')
+        if admin?
+          @products = Product.where(category: cat).order('display_order ASC')
+        else
+          @products = Product.where(hidden: false, category: cat).order('display_order ASC')
+        end
       end
     else
       if season
-        @products = Product.where(season: season).order('display_order ASC')
+        if admin?
+          @products = Product.where(season: season).order('display_order ASC')
+        else
+          @products = Product.where(hidden: false, season: season).order('display_order ASC')
+        end
       else
-        @products = Product.all.order('display_order ASC')
+        if admin?
+          @products = Product.all.order('display_order ASC')
+        else
+          @products = Product.all.where(hidden: false).order('display_order ASC')
+        end
       end
     end
   end
@@ -84,6 +103,6 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:name, :description, :price, :category, :season, :image, :display_order)
+      params.require(:product).permit(:name, :description, :price, :category, :season, :image, :display_order, :hidden)
     end
 end
