@@ -7,17 +7,13 @@ class AdminController < ApplicationController
     password = params[:password]
     
     if password == '7797'
-      cookies[:admin] = 'yes'
-    else
-      cookies[:admin] = 'no'
+      session[:admin] = 'yes'
     end
-
-    puts 'cookies = ' + cookies[:admin]
     redirect_to :admin
   end
   
   def logout
-    cookies[:admin] = 'no'
+    session.delete(:admin);
     redirect_to :admin
   end
 

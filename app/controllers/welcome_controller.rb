@@ -6,7 +6,6 @@ class WelcomeController < ApplicationController
     end    
   end
   
-  
   def mobile_device?
     if session[:mobile_param]
       session[:mobile_param] == "1"
@@ -16,3 +15,4 @@ class WelcomeController < ApplicationController
   end
     
 end
+  
