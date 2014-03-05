@@ -37,7 +37,7 @@
 					<% if product.images.length > 0 %>
 					<%= link_to image_tag(product.images[0].image.url), product_path(product) %>
 					<% end %>
-					<div class="caption">
+					<div class="caption" style="display: none">
 						<h4 class="text-center"> <%= link_to product.name, product_path(product) %> </h4>
 						<p class="product_desc"><%= product.description %></p>
 					</div>
