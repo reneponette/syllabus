@@ -9,15 +9,15 @@ class ProductsController < ApplicationController
 
     if cat
       if season
-        @products = Product.where(category: cat, season: season)
+        @products = Product.where(category: cat, season: season).order('display_order ASC')
       else
-        @products = Product.where(category: cat)
+        @products = Product.where(category: cat).order('display_order ASC')
       end
     else
       if season
-        @products = Product.where(season: season)
+        @products = Product.where(season: season).order('display_order ASC')
       else
-        @products = Product.all
+        @products = Product.all.order('display_order ASC')
       end
     end
   end
@@ -84,6 +84,6 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:name, :description, :price, :category, :season, :image)
+      params.require(:product).permit(:name, :description, :price, :category, :season, :image, :display_order)
     end
 end

@@ -16,3 +16,7 @@
   background-image: none;
   background-repeat: none;
 }
+
+.product_desc {
+  @include text-overflow();
+}

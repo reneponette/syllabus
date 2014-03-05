@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 20140305193643) do
     t.string   "season"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "display_order"
+    t.integer  "display_order", default: 0
   end
 
 end
