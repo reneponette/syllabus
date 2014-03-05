@@ -28,8 +28,10 @@
 	</div>
 	
 	<div class="panel-body">
+		<% @products.each.with_index(0) do |product, i| %>
+		<% if(i%4 == 0) %>
 		<div class="row">
-			<% @products.each do |product| %>
+		<% end %>
 			<div class="product_list_item col-sm-3 col-md-3">
 				<div class="thumbnail">
 					<% if product.images.length > 0 %>
@@ -41,7 +43,9 @@
 					</div>
 				</div>
 			</div>
-			<% end %>
+		<% if(i%4 == 3) %>			
 		</div>
+		<% end %>
+		<% end %>
 	</div>
 </div>
