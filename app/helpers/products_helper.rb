@@ -2,7 +2,7 @@ module ProductsHelper
   
   def categoryTitle(cat)
     
-    title = 'product'
+    title = 'collection'
     
     case cat
     when 100
