@@ -20,3 +20,10 @@
 .product_desc {
   @include text-overflow();
 }
+
+
+h2 {
+  small.pull-right {
+    margin-top:10px;
+  }
+}
